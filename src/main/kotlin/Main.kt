@@ -1,6 +1,4 @@
 import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.Crossfade
-import androidx.compose.animation.core.TweenSpec
 import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -31,7 +29,7 @@ fun App() {
     var babyStatus by remember { mutableStateOf(Constants.babyUnknown) }
     MaterialTheme {
         Column(
-            modifier = Modifier.background(color = Color(0xfffcf8db)).fillMaxSize().padding(12.dp),
+            modifier = Modifier.background(color = Color(0xfffcf8db)).fillMaxSize().padding(20.dp),
             verticalArrangement = Arrangement.SpaceBetween,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -133,7 +131,7 @@ fun main() = application {
     Window(
         onCloseRequest = ::exitApplication, title = "生男生女模拟器"
     ) {
-        window.minimumSize = Dimension(1000, 625)
+        window.minimumSize = Dimension(1024, 768)
         App()
     }
 }

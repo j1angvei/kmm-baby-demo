@@ -7,9 +7,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import java.lang.IllegalArgumentException
 
 /**
@@ -27,6 +29,7 @@ fun RowScope.TableCell(text: String, txtColor: Color, weight: Float, isBold: Boo
         Modifier.border(1f.dp, Color.Black).weight(weight).fillMaxHeight().wrapContentHeight()
             .padding(8.dp),
         textAlign = TextAlign.Center,
+        style = TextStyle(fontSize = 20F.sp),
         color = txtColor,
         fontWeight = if (isBold) FontWeight.Bold else null
     )

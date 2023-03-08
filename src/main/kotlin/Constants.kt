@@ -13,6 +13,6 @@ object Constants {
 
     val babyBoy =Pair("boy.svg", "小宝宝是男孩")
     val babyGirl =Pair("girl.svg", "小宝宝是女孩")
-    val babyUnknown =Pair("cradle.png", "小宝宝还未出生")
+    val babyUnknown =Pair("cradle.png", "还没有小宝宝")
     val fertilization =Pair("ferterlized_egg.png", "开始受精")
 }
