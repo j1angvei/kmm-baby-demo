@@ -47,7 +47,7 @@ fun ImageButton(
         Text(
             txt,
             color = txtColor,
-            style = TextStyle(fontSize = 20F.sp),
+            style = TextStyle(fontSize = 24F.sp),
             textAlign = TextAlign.Center
         )
     }
