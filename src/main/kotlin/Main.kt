@@ -132,6 +132,7 @@ fun App() {
 
 fun main() = application {
     Window(
+        icon = painterResource("icon.jpg"),
         onCloseRequest = ::exitApplication, title = "生男生女模拟器"
     ) {
         window.minimumSize = Dimension(1024, 768)

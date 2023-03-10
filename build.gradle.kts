@@ -18,20 +18,18 @@ repositories {
 dependencies {
     implementation(compose.desktop.currentOs)
     implementation(kotlin("stdlib-jdk8"))
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines:0.19.2")
-
 }
 
 tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "11"
+    kotlinOptions.jvmTarget = "15"
 }
 
 compose.desktop {
     application {
         mainClass = "MainKt"
         nativeDistributions {
-            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "baby"
+            targetFormats(TargetFormat.Dmg, TargetFormat.Exe)
+            packageName = "Baby"
             packageVersion = "1.0.0"
         }
     }
