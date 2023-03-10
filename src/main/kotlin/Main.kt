@@ -98,7 +98,7 @@ fun App() {
                             if (isCurX) girlCount++ else boyCount++
                         }
 
-                        Step.COMPLETE -> {
+                        Step.START_SIMULATION -> {
                             eggRes = Constants.unknownEgg
                             spermRes = Constants.unknownSperm
                             babyStatus = Constants.babyUnknown
