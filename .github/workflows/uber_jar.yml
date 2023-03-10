@@ -14,9 +14,9 @@ jobs:
        distribution: 'adopt'
        java-version: '15'
     - name: Build the windows project
-      run: ./gradlew packageReleaseExe
+      run: ./gradlew packageReleaseUberJarForCurrentOS
     - name: Upload artifact
       uses: actions/upload-artifact@v3
       with:
-        name: baby_windows.zip
-        path: build\compose\binaries\main-release\exe\
+        name: baby_uber_jar_windows.zip
+        path: build\compose\jars\
