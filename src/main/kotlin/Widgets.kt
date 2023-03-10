@@ -70,63 +70,8 @@ fun LabeledImage(src: String, label: String, modifier: Modifier = Modifier) {
         Text(
             label,
             textAlign = TextAlign.Center,
+            style = TextStyle(fontSize = 24.sp),
             modifier = Modifier.fillMaxWidth().padding(top = 8f.dp)
         )
     }
 }
-
-@Composable
-@Preview
-fun Egg(modifier: Modifier = Modifier) {
-    LabeledImage("egg.png", "卵子", modifier)
-}
-
-@Composable
-@Preview
-fun SpermX(modifier: Modifier = Modifier) {
-    LabeledImage("sperm_x.png", "带X染色体的精子", modifier)
-}
-
-@Composable
-@Preview
-fun SpermY(modifier: Modifier = Modifier) {
-    LabeledImage("sperm_y.png", "带Y染色体的精子", modifier)
-}
-
-@Composable
-@Preview
-fun UnknownSperm(modifier: Modifier = Modifier) {
-    LabeledImage("question_mark.png", "等待产生精子", modifier)
-}
-
-@Composable
-@Preview
-fun BabyBoy(modifier: Modifier = Modifier) {
-    LabeledImage(
-        "boy.svg", "小宝宝是男孩",  modifier.fillMaxSize()
-    )
-}
-
-@Composable
-@Preview
-fun BabyGirl(modifier: Modifier = Modifier) {
-    LabeledImage(
-        "girl.svg", "小宝宝是女孩", modifier.fillMaxSize()
-    )
-}
-
-@Composable
-@Preview
-fun BabyNoGender(modifier: Modifier = Modifier) {
-    LabeledImage(
-        "baby_no_gender.png", "小宝宝还未出生", modifier.fillMaxSize()
-    )
-}
-
-
-@Composable
-@Preview
-fun SvgImage() {
-    LabeledImage("boy.svg", "test")
-}
-

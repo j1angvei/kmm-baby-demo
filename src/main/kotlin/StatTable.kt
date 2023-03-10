@@ -26,10 +26,10 @@ import java.lang.IllegalArgumentException
 fun RowScope.TableCell(text: String, txtColor: Color, weight: Float, isBold: Boolean = false) {
     Text(
         text,
-        Modifier.border(1f.dp, Color.Black).weight(weight).fillMaxHeight().wrapContentHeight()
+        Modifier.border(0.5f.dp, Color.Black).weight(weight).fillMaxHeight().wrapContentHeight()
             .padding(8.dp),
         textAlign = TextAlign.Center,
-        style = TextStyle(fontSize = 20F.sp),
+        style = TextStyle(fontSize = 22F.sp),
         color = txtColor,
         fontWeight = if (isBold) FontWeight.Bold else null
     )

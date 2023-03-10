@@ -21,10 +21,11 @@ import kotlin.random.Random
 @Preview
 fun App() {
     var canNextStep by remember { mutableStateOf(true) }
-    var curStep by remember { mutableStateOf(Step.INIT) }
+    var curStep by remember { mutableStateOf(Step.START_SIMULATION) }
     var isCurX by remember { mutableStateOf(Random.nextBoolean()) }
     var boyCount by remember { mutableStateOf(0) }
     var girlCount by remember { mutableStateOf(0) }
+    var eggRes by remember { mutableStateOf(Constants.unknownEgg) }
     var spermRes by remember { mutableStateOf(Constants.unknownSperm) }
     var babyStatus by remember { mutableStateOf(Constants.babyUnknown) }
     MaterialTheme {
@@ -34,7 +35,7 @@ fun App() {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             AnimatedVisibility(
-                visible = curStep != Step.INIT || (boyCount + girlCount != 0),
+                visible = curStep != Step.START_SIMULATION || (boyCount + girlCount != 0),
                 modifier = Modifier.fillMaxWidth().weight(0.75f).background(Color.Transparent)
                     .wrapContentHeight()
             ) {
@@ -47,7 +48,7 @@ fun App() {
                         horizontalAlignment = Alignment.CenterHorizontally,
                         modifier = Modifier.weight(0.3f).fillMaxHeight()
                     ) {
-                        Egg()
+                        LabeledImage(eggRes.first, eggRes.second)
                         Image(
                             painter = painterResource("plus.png"),
                             contentDescription = "PLUS",
@@ -79,9 +80,10 @@ fun App() {
                 ) {
                     canNextStep = false
                     when (curStep) {
-                        Step.READY -> {
+                        Step.NEW_SPERM -> {
                             isCurX = Random.nextBoolean()
                             spermRes = if (isCurX) Constants.spermX else Constants.spermY
+                            eggRes = Constants.eggX
                         }
 
                         Step.FERTILIZED -> {
@@ -97,6 +99,7 @@ fun App() {
                         }
 
                         Step.COMPLETE -> {
+                            eggRes = Constants.unknownEgg
                             spermRes = Constants.unknownSperm
                             babyStatus = Constants.babyUnknown
                         }
@@ -109,16 +112,16 @@ fun App() {
                         canNextStep = true
                     }).start()
                 }
-                val canClear =
-                    (boyCount + girlCount) != 0 && (curStep == Step.COMPLETE)
+                val canClear = (boyCount + girlCount) != 0 && (curStep == Step.COMPLETE)
                 ImageButton(
                     "clear.png", "清空数据", Color.Black, Color.Red, canClear
                 ) {
                     boyCount = 0
                     girlCount = 0
+                    eggRes = Constants.unknownEgg
                     spermRes = Constants.unknownSperm
                     babyStatus = Constants.babyUnknown
-                    curStep = Step.INIT
+                    curStep = Step.START_SIMULATION
                     println("clear clicked , state $curStep")
                 }
             }
